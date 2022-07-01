@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework import permissions # new
 from drf_yasg.views import get_schema_view # new
 from drf_yasg import openapi # new
+from rest_framework.schemas import get_schema_view as gsv # new
 
 schema_view = get_schema_view( # new
     openapi.Info(
@@ -40,4 +41,6 @@ urlpatterns = [
     path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('openapi', gsv( title="Blog API", description="A sample API for learning DRF", version="1.0.0" ), name='openapi-schema'),
+
 ]
