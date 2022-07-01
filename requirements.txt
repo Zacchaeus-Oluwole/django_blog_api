@@ -13,3 +13,4 @@ dj-rest-auth==2.2.4
 drf-yasg==1.20.0
 PyYAML==6.0
 uritemplate==4.1.1
+Pillow==8.4.0
